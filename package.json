@@ -1,0 +1,22 @@
+{
+  "name": "angular-starter",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode development",
+    "w": "webpack --watch --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  }
+}
