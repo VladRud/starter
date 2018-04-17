@@ -2,13 +2,14 @@ export default class TestController {
     constructor(){
         let $ctrl = this;
 
-        $ctrl.input = 55;
-        this.updateData();
+        $ctrl.a1 = 1;
+        $ctrl.a2 = 2;
+        this.updateSum($ctrl.a1, $ctrl.a2);
 
     }
 
-    updateData(arg){
-        this.data = parseInt(this.input) * 2;
+    updateSum(arg1, arg2){
+        this.sum = parseInt(arg1) + parseInt(arg2);
     }
 
 }
