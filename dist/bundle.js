@@ -125,7 +125,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TestComponent\", function() { return TestComponent; });\n/* harmony import */ var _test_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.controller */ \"./src/test/test.controller.js\");\n\n\nconst TestComponent = {\n    template: `\n        <input ng-model=\"$ctrl.a1\" ng-change=\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\"/> <br>\n        <input ng-model=\"$ctrl.a2\" ng-change=\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\"/> <br>\n        Sum: {{$ctrl.sum}}`,\n    controller: _test_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n}\n\n//# sourceURL=webpack:///./src/test/test.component.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TestComponent\", function() { return TestComponent; });\n/* harmony import */ var _test_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.controller */ \"./src/test/test.controller.js\");\n/* harmony import */ var _test_template_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.template.html */ \"./src/test/test.template.html\");\n/* harmony import */ var _test_template_html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_test_template_html__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nconst TestComponent = {\n    templateUrl: _test_template_html__WEBPACK_IMPORTED_MODULE_1___default.a,\n    controller: _test_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n}\n\n//# sourceURL=webpack:///./src/test/test.component.js?");
 
 /***/ }),
 
@@ -138,6 +138,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return TestController; });\nclass TestController {\n    constructor(){\n        let $ctrl = this;\n\n        $ctrl.a1 = 1;\n        $ctrl.a2 = 2;\n        this.updateSum($ctrl.a1, $ctrl.a2);\n\n    }\n\n    updateSum(arg1, arg2){\n        this.sum = parseInt(arg1) + parseInt(arg2);\n    }\n\n}\n\n//# sourceURL=webpack:///./src/test/test.controller.js?");
+
+/***/ }),
+
+/***/ "./src/test/test.template.html":
+/*!*************************************!*\
+  !*** ./src/test/test.template.html ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var path = '/test/test.template.html';\nvar html = \"<div>\\n    <input ng-model=\\\"$ctrl.a1\\\" ng-change=\\\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\\\"/> <br>\\n    <input ng-model=\\\"$ctrl.a2\\\" ng-change=\\\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\\\"/> <br>\\n    Sum: {{$ctrl.sum}}\\n</div>\\n\";\nwindow.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);\nmodule.exports = path;\n\n//# sourceURL=webpack:///./src/test/test.template.html?");
 
 /***/ })
 

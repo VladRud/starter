@@ -1,9 +1,7 @@
 import TestController from './test.controller';
+import TestTemplate from './test.template.html';
 
 export const TestComponent = {
-    template: `
-        <input ng-model="$ctrl.a1" ng-change="$ctrl.updateSum($ctrl.a1, $ctrl.a2)"/> <br>
-        <input ng-model="$ctrl.a2" ng-change="$ctrl.updateSum($ctrl.a1, $ctrl.a2)"/> <br>
-        Sum: {{$ctrl.sum}}`,
+    templateUrl: TestTemplate,
     controller: TestController
 }
