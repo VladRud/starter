@@ -1,4 +1,4 @@
-export default {
+export const AppComponent = {
     template: `<header>
         Hello world
     </header>

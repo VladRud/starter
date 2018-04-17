@@ -97,11 +97,11 @@ eval("__webpack_require__(/*! ./angular */ \"./node_modules/angular/angular.js\"
 /*!******************************!*\
   !*** ./src/app.component.js ***!
   \******************************/
-/*! exports provided: default */
+/*! exports provided: AppComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    template: `<header>\n        Hello world\n    </header>\n    <br>\n    <test></test>\n    <br>\n    <br>\n    <div>\n        <div ui-view></div>\n    </div>\n    <footer>\n        Copyright MyApp 2018.\n    </footer>`\n});\n\n//# sourceURL=webpack:///./src/app.component.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"AppComponent\", function() { return AppComponent; });\nconst AppComponent = {\n    template: `<header>\n        Hello world\n    </header>\n    <br>\n    <test></test>\n    <br>\n    <br>\n    <div>\n        <div ui-view></div>\n    </div>\n    <footer>\n        Copyright MyApp 2018.\n    </footer>`\n};\n\n//# sourceURL=webpack:///./src/app.component.js?");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ \"./src/app.component.js\");\n/* harmony import */ var _test_test_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./test/test.component */ \"./src/test/test.component.js\");\n\n\n\n\n\n\nangular__WEBPACK_IMPORTED_MODULE_0___default.a.module('app', [])\n    .component('app', _app_component__WEBPACK_IMPORTED_MODULE_1__[\"default\"])\n    .component('test', _test_test_component__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ \"./src/app.component.js\");\n/* harmony import */ var _test_test_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./test/test.component */ \"./src/test/test.component.js\");\n\n\n\n\n\n\nangular__WEBPACK_IMPORTED_MODULE_0___default.a.module('app', [])\n    .component('app', _app_component__WEBPACK_IMPORTED_MODULE_1__[\"AppComponent\"])\n    .component('test', _test_test_component__WEBPACK_IMPORTED_MODULE_2__[\"TestComponent\"]);\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ }),
 
@@ -121,11 +121,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angu
 /*!************************************!*\
   !*** ./src/test/test.component.js ***!
   \************************************/
-/*! exports provided: default */
+/*! exports provided: TestComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.controller */ \"./src/test/test.controller.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    template: `\n        <input ng-model=\"$ctrl.a1\" ng-change=\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\"/> <br>\n        <input ng-model=\"$ctrl.a2\" ng-change=\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\"/> <br>\n        Sum: {{$ctrl.sum}}`,\n    controller: _test_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n});\n\n//# sourceURL=webpack:///./src/test/test.component.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"TestComponent\", function() { return TestComponent; });\n/* harmony import */ var _test_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.controller */ \"./src/test/test.controller.js\");\n\n\nconst TestComponent = {\n    template: `\n        <input ng-model=\"$ctrl.a1\" ng-change=\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\"/> <br>\n        <input ng-model=\"$ctrl.a2\" ng-change=\"$ctrl.updateSum($ctrl.a1, $ctrl.a2)\"/> <br>\n        Sum: {{$ctrl.sum}}`,\n    controller: _test_controller__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n}\n\n//# sourceURL=webpack:///./src/test/test.component.js?");
 
 /***/ }),
 
