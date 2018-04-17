@@ -1,11 +1,14 @@
-
 export default class TestController {
-    constructor($interval){
-        this.data = 1;
-        this.input = 55;
+    constructor(){
         let $ctrl = this;
 
-        $interval(() => {$ctrl.data = $ctrl.input; console.log($ctrl.data)}, 1000)
+        $ctrl.input = 55;
+        this.updateData();
+
+    }
+
+    updateData(arg){
+        this.data = parseInt(this.input) * 2;
     }
 
 }
