@@ -15,4 +15,4 @@ router.get('/:id', auth.hasRole('admin'), controller.show);
 router.put('/:id', auth.hasRole('admin'), controller.update);
 router.post('/', controller.create);
 
-export default router;
+module.exports = router;

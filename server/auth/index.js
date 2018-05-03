@@ -12,4 +12,4 @@ var router = express.Router();
 
 router.use('/local', require('./local'));
 
-export default router;
+module.exports = router;

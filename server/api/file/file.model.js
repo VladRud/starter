@@ -8,4 +8,4 @@ var FileSchema = new mongoose.Schema({
   name: String
 });
 
-export default mongoose.model('File', FileSchema);
+module.exports = mongoose.model('File', FileSchema);

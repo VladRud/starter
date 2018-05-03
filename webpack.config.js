@@ -4,6 +4,7 @@ const path = require('path');
 const ROOT_PATH = path.resolve(__dirname);
 const CLIENT_INDEX_PATH = ROOT_PATH + '/client/index.html';
 const NODE_ENV = process.env.NODE_ENV;
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
     entry: './client/app/app.module',
@@ -24,6 +25,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: CLIENT_INDEX_PATH
-        })
+        }),
+        new LiveReloadPlugin({})
     ]
 };

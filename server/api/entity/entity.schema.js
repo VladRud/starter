@@ -6,4 +6,4 @@ var EntitySchema = new mongoose.Schema({
   name: String
 });
 
-export default EntitySchema;
+module.exports = EntitySchema;

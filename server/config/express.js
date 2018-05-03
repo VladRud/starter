@@ -21,7 +21,7 @@ import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 var mongoStore = connectMongo(session);
 
-export default function(app) {
+module.exports = function(app) {
   var env = app.get('env');
 
   app.set('views', config.root + '/server/views');

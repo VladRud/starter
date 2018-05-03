@@ -227,4 +227,4 @@ class GCalendar extends EventEmitter {
   }
 }
 
-export default new GCalendar();
+module.exports = new GCalendar();

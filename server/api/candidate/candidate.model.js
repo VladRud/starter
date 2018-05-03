@@ -327,4 +327,4 @@ CandidateSchema.statics.getTodayInterviews = function() {
 }
 
 
-export default mongoose.model('Candidate', CandidateSchema);
+module.exports = mongoose.model('Candidate', CandidateSchema);
