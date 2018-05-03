@@ -2,8 +2,8 @@
 
 import angular from 'angular';
 import {AppComponent} from './app.component';
-import {TestComponent} from './test/test.component';
+import {HelloComponent} from './components/hello/hello.component';
 
 angular.module('app', [])
     .component('app', AppComponent)
-    .component('test', TestComponent);
+    .component('hello', HelloComponent);

@@ -1,0 +1,40 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/sergii/.nvm/versions/node/v4.2.3/bin/node',
+1 verbose cli   '/home/sergii/.nvm/versions/node/v4.2.3/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'server:build' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.3
+4 verbose run-script [ 'preserver:build', 'server:build', 'postserver:build' ]
+5 info preserver:build angular-starter@1.0.0
+6 info server:build angular-starter@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info angular-starter@1.0.0 Failed to exec server:build script
+9 verbose stack Error: angular-starter@1.0.0 server:build: `babel server --out-dir dist/server`
+9 verbose stack spawn ENOENT
+9 verbose stack     at ChildProcess.<anonymous> (/home/sergii/.nvm/versions/node/v4.2.3/lib/node_modules/npm/lib/utils/spawn.js:17:16)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:818:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+10 verbose pkgid angular-starter@1.0.0
+11 verbose cwd /home/sergii/starter
+12 error Linux 4.13.0-38-generic
+13 error argv "/home/sergii/.nvm/versions/node/v4.2.3/bin/node" "/home/sergii/.nvm/versions/node/v4.2.3/bin/npm" "run" "server:build"
+14 error node v4.2.3
+15 error npm  v2.14.7
+16 error file sh
+17 error code ELIFECYCLE
+18 error errno ENOENT
+19 error syscall spawn
+20 error angular-starter@1.0.0 server:build: `babel server --out-dir dist/server`
+20 error spawn ENOENT
+21 error Failed at the angular-starter@1.0.0 server:build script 'babel server --out-dir dist/server'.
+21 error This is most likely a problem with the angular-starter package,
+21 error not with npm itself.
+21 error Tell the author that this fails on your system:
+21 error     babel server --out-dir dist/server
+21 error You can get their info via:
+21 error     npm owner ls angular-starter
+21 error There is likely additional logging output above.
+22 verbose exit [ 1, true ]

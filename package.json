@@ -4,9 +4,20 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development",
-    "w": "webpack --watch --mode development"
+    "clean": "rimraf dist/*",
+    "build:dev": "npm run client:build:dev && npm run server:build",
+    "client:build:dev": "NODE_ENV=development webpack",
+    "server:build": "babel server --out-dir dist/server",
+    "client:watch": "NODE_ENV=development webpack --watch",
+    "server:watch": "babel server --watch --out-dir dist/server ",
+    "watch": "npm run client:watch & npm run server:watch",
+    "start": "node dist/server"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "sourceMap": true
   },
   "keywords": [],
   "author": "",
@@ -16,8 +27,19 @@
     "lodash": "^4.17.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "express": "^4.16.3",
     "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mongoose": "^5.0.17",
     "ngtemplate-loader": "^2.0.1",
+    "rimraf": "^2.6.2",
+    "socket.io": "^1.3.5",
+    "socket.io-client": "^1.3.5",
+    "socketio-jwt": "^4.2.0",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9"
   }
