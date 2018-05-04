@@ -8,12 +8,10 @@
     "build:dev": "npm run client:build:dev && npm run server:build",
     "serve": "node dist/server & npm run watch",
     "client:build:dev": "npm run clean && NODE_ENV=development webpack && npm run copy:client",
-
     "build:start": "npm run build && npm run start",
     "build": "npm run client:build:prod && npm run server:build",
     "start": "NODE_ENV=production GOOGLE_KEY_FILE=dist/.credentials/HRDB.json node dist/server",
     "client:build:prod": "npm run clean && NODE_ENV=production webpack && npm run copy:client",
-
     "server:build": "babel server --out-dir dist/server && npm run copy:server",
     "watch": "npm run client:watch & npm run server:watch",
     "client:watch": "NODE_ENV=development webpack --watch",
@@ -23,7 +21,9 @@
     "copy:client": "cp -t dist/client client/favicon.ico client/robots.txt"
   },
   "babel": {
-    "presets": ["es2015"],
+    "presets": [
+      "es2015"
+    ],
     "sourceMap": true
   },
   "keywords": [],
