@@ -4,13 +4,17 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "npm run client:build:prod && npm run server:build",
+    "build:serve": "npm run build:dev && npm run serve",
     "build:dev": "npm run client:build:dev && npm run server:build",
+    "serve": "node dist/server & npm run watch",
     "client:build:dev": "npm run clean && NODE_ENV=development webpack && npm run copy:client",
-    "client:build:prod": "npm run clean && NODE_ENV=production webpack && npm run copy:client",
-    "server:build": "babel server --out-dir dist/server && npm run copy:server",
+
+    "build:start": "npm run build && npm run start",
+    "build": "npm run client:build:prod && npm run server:build",
     "start": "NODE_ENV=production GOOGLE_KEY_FILE=dist/.credentials/HRDB.json node dist/server",
-    "serve": "node dist/server & npm run client:watch",
+    "client:build:prod": "npm run clean && NODE_ENV=production webpack && npm run copy:client",
+
+    "server:build": "babel server --out-dir dist/server && npm run copy:server",
     "watch": "npm run client:watch & npm run server:watch",
     "client:watch": "NODE_ENV=development webpack --watch",
     "server:watch": "babel server --watch --out-dir dist/server ",

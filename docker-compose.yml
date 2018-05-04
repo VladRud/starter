@@ -1,0 +1,24 @@
+version: '3'
+services:
+  hrdb:
+    build: .
+    restart: always
+    environment:
+      - PORT=80
+      - NODE_ENV=production
+    ports:
+     - "80:80"
+    volumes:
+     - /data/uploads/:/data/uploads/
+    depends_on:
+     - hrdbmongo
+  hrdbmongo:
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+     - /data/db/:/data/db/
+    image: mongo
+    container_name: hrdbmongo
+    hostname:       hrdbmongo
+    domainname:     hrdbmongo
