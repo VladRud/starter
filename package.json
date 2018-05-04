@@ -4,23 +4,22 @@
   "description": "",
   "private": true,
   "scripts": {
+    "build": "npm run client:build:prod && npm run server:build",
     "build:dev": "npm run client:build:dev && npm run server:build",
-    "build:prod": "npm run client:build:prod && npm run server:build",
-    "client:build:dev": "npm run clean && npm run clean && NODE_ENV=development webpack",
-    "client:build:prod": "npm run clean && npm run clean && NODE_ENV=production webpack",
-    "server:build": "babel server --out-dir dist/server && npm run copy",
+    "client:build:dev": "npm run clean && NODE_ENV=development webpack && npm run copy:client",
+    "client:build:prod": "npm run clean && NODE_ENV=production webpack && npm run copy:client",
+    "server:build": "babel server --out-dir dist/server && npm run copy:server",
+    "start": "NODE_ENV=production GOOGLE_KEY_FILE=dist/.credentials/HRDB.json node dist/server",
+    "serve": "node dist/server & npm run client:watch",
+    "watch": "npm run client:watch & npm run server:watch",
     "client:watch": "NODE_ENV=development webpack --watch",
     "server:watch": "babel server --watch --out-dir dist/server ",
-    "watch": "npm run client:watch & npm run server:watch",
-    "start": "node dist/server",
-    "serve": "npm run server:build && node dist/server & npm run watch",
     "clean": "rimraf dist/*",
-    "copy": "cp .credentials dist -r"
+    "copy:server": "cp .credentials dist -r",
+    "copy:client": "cp -t dist/client client/favicon.ico client/robots.txt"
   },
   "babel": {
-    "presets": [
-      "es2015"
-    ],
+    "presets": ["es2015"],
     "sourceMap": true
   },
   "keywords": [],
@@ -33,9 +32,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-runtime": "^5.8.20",
-    "bluebird": "^3.4.1",
     "body-parser": "^1.13.3",
     "botbuilder": "^3.12.0",
     "composable-middleware": "^0.3.0",
