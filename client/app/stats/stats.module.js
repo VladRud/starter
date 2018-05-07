@@ -5,7 +5,7 @@ import authModule from './../../components/auth/auth.module';
 import uiRouter from '@uirouter/angularjs';
 import chartJs from 'angular-chart.js';
 import uiSelect from 'ui-select';
-import daterangepicker from 'angular-daterangepicker/js/angular-daterangepicker';
+import daterangepicker from 'angular-daterangepicker';
 import StatsService from "./stats.service";
 import StatsComponent from "./stats.component";
 import StatsAgencyComponent from "./stats-agency/stats-agency.component";
@@ -14,10 +14,6 @@ import StatsMonthComponent from "./stats-month/stats-month.component";
 import StatsOriginComponent from "./stats-origin/stats-origin.component";
 import StatsPositionFilterComponent from "./stats-position-filter/stats-position-filter.component";
 
-console.log('Stats: ');
-console.log(daterangepicker);
-
-
 let statsModule = angular
   .module('hrDbApp.stats', [
     // 'hrDbApp',
@@ -25,7 +21,7 @@ let statsModule = angular
     uiRouter,
     chartJs,
     uiSelect,
-    // daterangepicker
+    daterangepicker
   ])
   .component('stats', StatsComponent)
   .component('statsAgency', StatsAgencyComponent)

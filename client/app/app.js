@@ -1,3 +1,4 @@
+
 'use strict';
 
 
@@ -12,7 +13,7 @@ import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
 // TODO: import btford.socket-io
 import uiRouter from '@uirouter/angularjs';
-import uiBootstrap from 'angular-bootstrap/ui-bootstrap';
+import uiBootstrap from 'angular-ui-bootstrap';
 import validationMatch from 'angular-validation-match';
 import ngFileUpload from 'ng-file-upload';
 import angularSpinner from 'angular-spinner';
@@ -38,10 +39,7 @@ import SearchFactory from "../components/search/search.service";
 import SocketFactory from "../components/socket/socket.service";
 import VisitController from "../components/visit/visit.controller";
 import VisitsDirective from "../components/visit/visit.directive";
-
-console.log('hrDbApp:');
-console.log(uiBootstrap);
-console.log(angularSpinner);
+import CandidateRouter from "./candidate/candidate";
 
 angular.module('hrDbApp', [
   authModule,
@@ -54,10 +52,10 @@ angular.module('hrDbApp', [
   ngSanitize,
   // /*'btford.socket-io',*/
   uiRouter,
-  // uiBootstrap,
+  uiBootstrap,
   validationMatch,
   ngFileUpload,
-  // angularSpinner,
+  angularSpinner.angularSpinner.name,
   angularMoment
 ])
   .controller('LoginController', LoginController)
@@ -79,6 +77,7 @@ angular.module('hrDbApp', [
   .directive('navbar', NavbarDirective)
   .directive('visit', VisitsDirective)
   .filter('hasOpenVisits', HasOpenVisitsFilter)
+  .config(CandidateRouter)
   .config(function ($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
