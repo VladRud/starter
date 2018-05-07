@@ -1,0 +1,11 @@
+<form name="statsDateFilterForm">
+  <input
+          ng-model="$ctrl.datePicker.date"
+          ng-change="$ctrl.onChange()"
+          date-range-picker
+          options="$ctrl.datePicker.options"
+          clearable="true"
+          class="form-control"
+          type="text"
+          placeholder="by dates"/>
+</form>

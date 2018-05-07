@@ -1,0 +1,37 @@
+<navbar></navbar>
+
+<div class="container">
+
+  <h1>Visits statistic</h1>
+
+  <div class="stats-filters">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <p class="filters-title text-right"><i class="fa fa-filter"></i> Filters:</p>
+      </div>
+      <div class="col-sm-3">
+        <stats-position-filter
+                selected-positions-ids="$ctrl.selectedPositionsIds"
+                available-positions="$ctrl.allowedToUserPositions"
+                on-positions-selection-change="$ctrl.updateStatsWithNewPositions($event)"
+        ></stats-position-filter>
+      </div>
+      <div class="col-sm-3">
+        <stats-date-filter
+                start-date="$ctrl.startDateParam"
+                end-date="$ctrl.endDateParam"
+                on-dates-changed="$ctrl.updateStatsWithNewDates($event)"
+        ></stats-date-filter>
+      </div>
+    </div>
+  </div>
+
+  <stats-month monthly-chart="$ctrl.monthlyChart"></stats-month>
+
+  <stats-agency stats-by-agency="$ctrl.statsByAgency" agencies="$ctrl.agencies"></stats-agency>
+
+  <stats-origin stats-by-origin="$ctrl.statsByOrigin" origins="$ctrl.origins"></stats-origin>
+
+</div>
+
+<footer></footer>

@@ -1,0 +1,103 @@
+<navbar></navbar>
+
+<div class="container">
+  <button class="btn btn-default pull-right" ng-click="vm.state.go('candidate.new')">New candidate</button>
+
+  <table class="table table-hover candidate-list">
+    <thead>
+      <tr>
+        <th style="width: 180px">
+          First Name
+          <a href ng-click="vm.sortParam('firstName')">
+            <i class="fa" ng-class="vm.filter.sort.field == 'firstName' ? (vm.filter.sort.reverse ? 'fa-sort-alpha-desc' : 'fa-sort-alpha-asc') : 'fa-sort'"></i>
+          </a>
+        </th>
+        <th style="width: 180px">
+          Last Name
+          <a href ng-click="vm.sortParam('lastName')">
+            <i class="fa" ng-class="vm.filter.sort.field == 'lastName' ? (vm.filter.sort.reverse ? 'fa-sort-alpha-desc' : 'fa-sort-alpha-asc') : 'fa-sort'"></i>
+          </a>
+        </th>
+        <th style="width: 150px">
+          Last visit
+          <a href ng-click="vm.sortParam('lastVisitDate.getTime()')">
+            <i class="fa" ng-class="vm.filter.sort.field == 'lastVisitDate.getTime()' ? (vm.filter.sort.reverse ? 'fa-sort-alpha-desc' : 'fa-sort-alpha-asc') : 'fa-sort'"></i>
+          </a>
+        </th>
+        <th style="width: 270px">
+          Last position
+        </th>
+        <th>Preferences</th>
+        <th>Pending visits</th>
+        <th style="width: 80px"></th>
+      </tr>
+      <tr>
+        <th><input class="form-control" type="text" ng-model="vm.filter.query.firstName"></th>
+        <th><input class="form-control" type="text" ng-model="vm.filter.query.lastName"></th>
+        <th></th>
+        <th>
+          <select class="form-control"
+                  ng-options="position._id as position.name for position in vm.positionsFilteredByAccess"
+                  ng-model="vm.filter.query._lastVisitPosition"
+                  required>
+            <option value=""> --- </option>
+          </select>
+        </th>
+        <th>
+          <div class="btn-group">
+            <label class="btn btn-default" ng-model="vm.filter.query.preferences" uib-btn-radio="'blacklist'">BL</label>
+            <label class="btn btn-default" ng-model="vm.filter.query.preferences" uib-btn-radio="undefined">-</label>
+            <label class="btn btn-default" ng-model="vm.filter.query.preferences" uib-btn-radio="'wishlist'">WL</label>
+          </div>
+        </th>
+        <th>
+          <div class="btn-group">
+            <label class="btn btn-default" ng-model="vm.filter.query.pending" uib-btn-radio="'1'">Y</label>
+            <label class="btn btn-default" ng-model="vm.filter.query.pending" uib-btn-radio="undefined">-</label>
+            <label class="btn btn-default" ng-model="vm.filter.query.pending" uib-btn-radio="'!1'">N</label>
+          </div>
+        </th>
+        <th class="remove-filters">
+          <a href="#" ng-click="vm.removeFilters()"><span class="fa fa-remove fa-2x"></span></a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-show="!vm.filteredCandidates.length">
+        <td colspan="5">
+          No candidates found
+        </td>
+      </tr>
+      <tr
+        ng-repeat="c in vm.filteredCandidates"
+        ng-click="vm.state.go('candidate.details', { 'id': c._id})" >
+        <td>{{c.firstName}}</td>
+        <td>{{c.lastName}}</td>
+        <td>
+          {{c.lastVisitDate  | amDateFormat : 'L'}}
+          <span ng-if="c.lastVisitDate === undefined">never</span>
+          <span ng-if="c._lastVisitAgency" class="byagency">by {{vm.agencies[c._lastVisitAgency].name}}</span>
+        </td>
+        <td>
+          {{vm.positions[c._lastVisitPosition].name}}
+        </td>
+        <td>
+          <i class="fa fa-exclamation-triangle fa-2x" ng-if="c.preferences == 'blacklist'"></i>
+          <i class="fa fa-heart fa-2x" ng-if="c.preferences == 'wishlist'"></i>
+        </td>
+        <td>
+          <interview-status stage="c.interviewStatus[0]" date-time="c.interviewStatus[1]" ng-show="c.pending"></interview-status>
+        </td>
+        <td>
+          <a href="#" ng-click="vm.state.go('candidate.details', { 'id': c._id}); $event.stopPropagation();" class="edit"><span class="fa fa-pencil fa-2x"></span></a>
+          <a href="#" ng-click="vm.removeCandidate(c); $event.stopPropagation();" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-default pull-right" ng-click="vm.loadMore(vm.appConfig.listPageSize)" ng-show="vm.filter.limit < vm.filteredCandidatesLength">
+    Load <strong>{{::vm.appConfig.listPageSize}} more</strong> of <strong>{{vm.filteredCandidatesLength}} total</strong>
+  </button>
+</div>
+
+<footer></footer>

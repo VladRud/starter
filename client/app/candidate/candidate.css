@@ -1,0 +1,55 @@
+.navbar-text {
+  margin-left: 15px;
+}
+.rating .glyphicon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.download-button {
+  margin-top: 25px;
+}
+.visit {
+  margin-top: 20px;
+}
+.fileinfo {
+  padding-top: 25px;
+}
+.fileinfo .progress {
+  margin-top: 5px;
+}
+.rating *:focus {
+  outline: none;
+}
+li[data-closed="hired"] > a {
+  background-color: lightgreen;
+}
+li[data-closed="rejected"] > a {
+  background-color: lightsalmon;
+}
+.fa.form-control-feedback {
+  line-height: 34px;
+}
+.byagency {
+  display: block;
+  font-size: 12px;
+}
+table.candidate-list tbody tr {
+  cursor: pointer;
+}
+th.remove-filters {
+  vertical-align: middle;
+}
+th.remove-filters a {
+  color:rgb(209, 91, 71);
+}
+.interview-past {
+  color:rgb(209, 91, 71);
+}
+
