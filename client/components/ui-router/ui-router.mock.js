@@ -1,6 +1,9 @@
 'use strict';
 
-angular.module('stateMock', []);
+import angular from 'angular';
+
+let StateMockModule = angular.module('stateMock', []);
+
 angular.module('stateMock').service('$state', function($q) {
     this.expectedTransitions = [];
 
@@ -32,3 +35,5 @@ angular.module('stateMock').service('$state', function($q) {
         }
     };
 });
+
+export default StateMockModule;

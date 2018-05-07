@@ -8,7 +8,7 @@ const IS_DEV = NODE_ENV === 'development';
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
-    entry: './client/app/app.module',
+    entry: './client/app/app',
     output: {
         filename: 'bundle.[hash].js',
         path: path.resolve(__dirname, 'dist/client')

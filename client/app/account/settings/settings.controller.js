@@ -2,8 +2,9 @@
 
 class SettingsController {
   //start-non-standard
-  errors = {};
-  submitted = false;
+  // Fixme: uncomment and make them work
+  /*errors = {};
+  submitted = false;*/
   //end-non-standard
 
   constructor(Auth) {
@@ -27,5 +28,4 @@ class SettingsController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('SettingsController', SettingsController);
+export default SettingsController;

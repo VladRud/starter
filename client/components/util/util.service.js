@@ -1,6 +1,5 @@
 'use strict';
 
-(function() {
 
 /**
  * The Util service is for thin, globally reusable, utility functions
@@ -53,7 +52,4 @@ function UtilService($window) {
   return Util;
 }
 
-angular.module('hrDbApp.util')
-  .factory('Util', UtilService);
-
-})();
+export default UtilService;

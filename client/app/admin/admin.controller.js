@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 class AdminController {
   constructor(User, Modal) {
     this.Modal = Modal;
@@ -22,7 +20,5 @@ class AdminController {
   }
 }
 
-angular.module('hrDbApp.admin')
-  .controller('AdminController', AdminController);
+export default AdminController;
 
-})();

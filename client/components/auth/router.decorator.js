@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+import angular from 'angular';
 
 angular.module('hrDbApp.auth')
   .run(function($rootScope, $state, Auth) {
@@ -34,4 +34,3 @@ angular.module('hrDbApp.auth')
     });
   });
 
-})();

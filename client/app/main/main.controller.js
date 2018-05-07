@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 class MainController {
 
   constructor($http, $scope, socket) {
@@ -30,7 +28,4 @@ class MainController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('MainController', MainController);
-
-})();
+export default MainController;

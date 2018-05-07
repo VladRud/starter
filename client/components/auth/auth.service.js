@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
   var safeCb = Util.safeCb;
   var currentUser = {};
@@ -185,7 +183,4 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
   return Auth;
 }
 
-angular.module('hrDbApp.auth')
-  .factory('Auth', AuthService);
-
-})();
+export default AuthService;

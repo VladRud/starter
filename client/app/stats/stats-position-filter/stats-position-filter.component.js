@@ -1,7 +1,5 @@
 'use strict';
 
-(function () {
-
   const StatsPositionFilterComponent = {
     bindings: {
       selectedPositionsIds: '<',
@@ -34,8 +32,4 @@
     }
   };
 
-  angular
-      .module('hrDbApp.stats')
-      .component('statsPositionFilter', StatsPositionFilterComponent);
-
-})();
+export default StatsPositionFilterComponent;

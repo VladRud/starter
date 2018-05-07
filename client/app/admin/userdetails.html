@@ -57,6 +57,7 @@
       </p>
     </div>
     <div class="col-sm-2">
+      <!--TOOD: try <ui-toggle -->
       <toggle ng-model="vm.user.changePasswordFlag" class="change-password-toggle pull-right" offstyle="btn-success" onstyle="btn-danger" on="Change" off="Do Not Change"></toggle>
     </div>
   </div>
@@ -64,6 +65,7 @@
   <div class="form-group">
     <label class="col-sm-3 control-label">Active</label>
     <div class="col-sm-9">
+      <!--TOOD: try <ui-toggle -->
       <toggle ng-model="vm.user.active"></toggle>
     </div>
   </div>
@@ -81,6 +83,7 @@
   <div class="form-group" ng-if="vm.user.role == 'user'">
     <label class="col-sm-3 control-label">Limited job positions access</label>
     <div class="col-sm-9">
+      <!--TOOD: try <ui-toggle -->
       <toggle ng-model="vm.user.limitedPositionsFlag"></toggle>
     </div>
   </div>

@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 class EntityController {
 
   constructor($http, $stateParams, Modal) {
@@ -34,7 +32,6 @@ class EntityController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('EntityController', EntityController);
+export default EntityController;
 
-})();
+

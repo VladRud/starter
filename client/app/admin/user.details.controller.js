@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 class UserDetailsController {
   constructor(User, Modal, $http, $scope, $state, userObj) {
     this.Modal = Modal;
@@ -70,7 +68,4 @@ class UserDetailsController {
   // }
 }
 
-angular.module('hrDbApp.admin')
-  .controller('UserDetailsController', UserDetailsController);
-
-})();
+export default UserDetailsController;

@@ -1,8 +1,6 @@
 'use strict';
 
-(function () {
-
-  const StatsService = class {
+const StatsService = class {
     constructor($http) {
       'ngInject';
       this.$http = $http;
@@ -47,8 +45,4 @@
     }
   };
 
-  angular
-      .module('hrDbApp.stats')
-      .service('StatsService', StatsService);
-
-})();
+export default StatsService;

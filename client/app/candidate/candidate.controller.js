@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 class CandidateController {
 
   constructor($filter, $http, $state, $stateParams, $scope, $q, Modal, Search, candidateObj) {
@@ -165,6 +163,6 @@ class CandidateController {
 
 }
 
-angular.module('hrDbApp')
-  .controller('CandidateController', CandidateController);
-})();
+export default CandidateController;
+
+

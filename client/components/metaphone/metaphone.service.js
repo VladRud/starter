@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('hrDbApp.metaphone')
-  .factory('Metaphone', function (appConfig, Translit, metaphoneLib) {
+const MetaphoneFactory = function (appConfig, Translit, metaphoneLib) {
 
-    // Public API here
-    return {
-      process(str) {
-        return metaphoneLib(Translit.process(str));
-      }
-    };
-  });
+  // Public API here
+  return {
+    process(str) {
+      return metaphoneLib(Translit.process(str));
+    }
+  };
+};
+
+export default MetaphoneFactory;

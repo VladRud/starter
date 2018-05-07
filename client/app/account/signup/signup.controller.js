@@ -2,9 +2,10 @@
 
 class SignupController {
   //start-non-standard
-  user = {};
+  // Fixme: uncomment and make them work
+  /*user = {};
   errors = {};
-  submitted = false;
+  submitted = false;*/
   //end-non-standard
 
   constructor(Auth, $state) {
@@ -42,5 +43,4 @@ class SignupController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('SignupController', SignupController);
+export default SignupController;

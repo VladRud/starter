@@ -1,4 +1,7 @@
 'use strict';
+//TODO: check this
+
+import angular from 'angular';
 
 angular.module('hrDbApp')
   .config(function($stateProvider) {

@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('hrDbApp')
-  .directive('navbar', () => ({
-    templateUrl: 'components/navbar/navbar.html',
-    restrict: 'E',
-    controller: 'NavbarController',
-    controllerAs: 'nav'
-  }));
+const NavbarDirective = () => ({
+  templateUrl: 'components/navbar/navbar.html',
+  restrict: 'E',
+  controller: 'NavbarController',
+  controllerAs: 'nav'
+});
+
+export default NavbarDirective;

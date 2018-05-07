@@ -3,13 +3,14 @@
 /**
  * Removes server error when user updates input
  */
-angular.module('hrDbApp')
-  .directive('mongooseError', function() {
-    return {
-      restrict: 'A',
-      require: 'ngModel',
-      link: function(scope, element, attrs, ngModel) {
-        element.on('keydown', () => ngModel.$setValidity('mongoose', true));
-      }
-    };
-  });
+const MongooseErrorDirective = function() {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ngModel) {
+      element.on('keydown', () => ngModel.$setValidity('mongoose', true));
+    }
+  };
+};
+
+export default MongooseErrorDirective;

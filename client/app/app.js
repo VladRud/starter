@@ -1,22 +1,84 @@
 'use strict';
 
+
+import angular from 'angular';
+import authModule from './../components/auth/auth.module';
+import adminModule from './admin/admin.module';
+import statsModule from './stats/stats.module';
+import constantsModule from './app.constant';
+import metaphoneModule from './../components/metaphone/metaphone.module';
+import ngCookies from 'angular-cookies';
+import ngResource from 'angular-resource';
+import ngSanitize from 'angular-sanitize';
+// TODO: import btford.socket-io
+import uiRouter from '@uirouter/angularjs';
+import uiBootstrap from 'angular-bootstrap/ui-bootstrap';
+import validationMatch from 'angular-validation-match';
+import ngFileUpload from 'ng-file-upload';
+import angularSpinner from 'angular-spinner';
+import angularMoment from 'angular-moment';
+
+import LoginController from './account/login/login.controller';
+import SettingsController from "./account/settings/settings.controller";
+import SignupController from "./account/signup/signup.controller";
+import CandidateController from "./candidate/candidate.controller";
+import CandidateListController from './candidate/candidate.list.controller';
+import EntityController from "./entity/entity.controller";
+import MainController from "./main/main.controller";
+import NavbarController from './../components/navbar/navbar.controller';
+
+// Question: Should it be named as factory or service?
+import EntityFactory from './../components/entity/entity.service';
+import FooterDirective from "../components/footer/footer.directive";
+import InterviewStatusDirective from "../components/interviewStatus/interviewStatus.directive";
+import ModalFactory from "../components/modal/modal.service";
+import MongooseErrorDirective from "../components/mongoose-error/mongoose-error.directive";
+import NavbarDirective from "../components/navbar/navbar.directive";
+import SearchFactory from "../components/search/search.service";
+import SocketFactory from "../components/socket/socket.service";
+import VisitController from "../components/visit/visit.controller";
+import VisitsDirective from "../components/visit/visit.directive";
+
+console.log('hrDbApp:');
+console.log(uiBootstrap);
+console.log(angularSpinner);
+
 angular.module('hrDbApp', [
-    'hrDbApp.auth',
-    'hrDbApp.admin',
-    'hrDbApp.stats',
-    'hrDbApp.constants',
-    'hrDbApp.metaphone',
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'btford.socket-io',
-    'ui.router',
-    'ui.bootstrap',
-    'validation.match',
-    'ngFileUpload',
-    'angularSpinner',
-    'angularMoment'
-  ])
+  authModule,
+  adminModule,
+  statsModule,
+  constantsModule,
+  metaphoneModule,
+  ngCookies,
+  ngResource,
+  ngSanitize,
+  // /*'btford.socket-io',*/
+  uiRouter,
+  // uiBootstrap,
+  validationMatch,
+  ngFileUpload,
+  // angularSpinner,
+  angularMoment
+])
+  .controller('LoginController', LoginController)
+  .controller('SettingsController', SettingsController)
+  .controller('SignupController', SignupController)
+  .controller('CandidateController', CandidateController)
+  .controller('CandidateListController', CandidateListController)
+  .controller('EntityController', EntityController)
+  .controller('MainController', MainController)
+  .controller('NavbarController', NavbarController)
+  .controller('VisitController', VisitController)
+  .factory('Entity', EntityFactory)
+  .factory('Modal', ModalFactory)
+  .factory('Search', SearchFactory)
+  .factory('socket', SocketFactory)
+  .directive('footer', FooterDirective)
+  .directive('interviewStatus', InterviewStatusDirective)
+  .directive('mongooseError', MongooseErrorDirective)
+  .directive('navbar', NavbarDirective)
+  .directive('visit', VisitsDirective)
+  .filter('hasOpenVisits', HasOpenVisitsFilter)
   .config(function ($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
@@ -58,14 +120,17 @@ angular.module('hrDbApp', [
   })
   .run(amMoment => {
     amMoment.changeLocale('en', {
-      longDateFormat : {
-        LTS  : 'HH:mm:ss',
-        LT   : 'HH:mm',
-        L    : 'MM.DD.YYYY',
-        LL   : 'MMMM D, YYYY',
-        LLL  : 'MMMM D, YYYY HH:mm',
-        LLLL : 'dddd, MMMM D, YYYY HH:mm'
+      longDateFormat: {
+        LTS: 'HH:mm:ss',
+        LT: 'HH:mm',
+        L: 'MM.DD.YYYY',
+        LL: 'MMMM D, YYYY',
+        LLL: 'MMMM D, YYYY HH:mm',
+        LLLL: 'dddd, MMMM D, YYYY HH:mm'
       }
     });
   });
 
+
+
+import HasOpenVisitsFilter from "../components/visit/visit.filters";

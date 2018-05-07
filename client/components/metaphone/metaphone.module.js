@@ -1,6 +1,16 @@
 'use strict';
 
-angular.module('hrDbApp.metaphone', [
-    'hrDbApp.constants',
+import metaphone from 'metaphone';
+import MetaphoneFactory from "./metaphone.service";
+import TranslitFactory from "./translit.service";
+import ConstantsModule from './../../app/app.constant';
+
+let metaphoneModule = angular.module('hrDbApp.metaphone', [
+    ConstantsModule,
   ])
-  .constant('metaphoneLib', metaphone);
+  .factory('Metaphone', MetaphoneFactory)
+  .factory('Translit', TranslitFactory)
+  .constant('metaphoneLib', metaphone)
+  .name;
+
+export default metaphoneModule;

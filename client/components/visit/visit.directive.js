@@ -1,14 +1,15 @@
 'use strict';
 
-angular.module('hrDbApp')
-  .directive('visit', () => ({
-    templateUrl: 'components/visit/visit.html',
-    scope: {},
-    bindToController: {
-      visit: '=',
-      candidateName: '@'
-    },
-    restrict: 'E',
-    controller: 'VisitController',
-    controllerAs: 'vm'
-  }));
+const VisitsDirective = () => ({
+  templateUrl: 'components/visit/visit.html',
+  scope: {},
+  bindToController: {
+    visit: '=',
+    candidateName: '@'
+  },
+  restrict: 'E',
+  controller: 'VisitController',
+  controllerAs: 'vm'
+});
+
+export default VisitsDirective;

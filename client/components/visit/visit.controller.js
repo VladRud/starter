@@ -65,5 +65,4 @@ class VisitController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('VisitController', VisitController);
+export default VisitController;

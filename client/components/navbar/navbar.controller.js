@@ -2,7 +2,8 @@
 
 class NavbarController {
   //start-non-standard
-  menu = [{
+  // Fixme: uncomment and make it work
+  /*menu = [{
     'title': 'Candidates',
     'state': 'candidate.list'
   },
@@ -28,7 +29,7 @@ class NavbarController {
     'state': 'admin.userlist'
   }];
 
-  isCollapsed = true;
+  isCollapsed = true;*/
   //end-non-standard
 
   constructor(Auth) {
@@ -38,5 +39,4 @@ class NavbarController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('NavbarController', NavbarController);
+export default NavbarController;

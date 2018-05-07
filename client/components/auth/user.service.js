@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 function UserResource($resource) {
   return $resource('/api/users/:id/:controller', {
     id: '@_id'
@@ -30,7 +28,6 @@ function UserResource($resource) {
   });
 }
 
-angular.module('hrDbApp.auth')
-  .factory('User', UserResource);
+export default UserResource;
 
-})();
+

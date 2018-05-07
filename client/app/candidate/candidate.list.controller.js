@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 class CandidateListController {
 
   constructor($http, $state, $scope, $cookies, $filter, Modal, candidatesObj, agencies, positions, appConfig, Metaphone, Auth) {
@@ -112,7 +110,4 @@ class CandidateListController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('CandidateListController', CandidateListController);
-
-})();
+export default CandidateListController;

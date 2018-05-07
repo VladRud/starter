@@ -1,7 +1,5 @@
 'use strict';
 
-(function() {
-
 function authInterceptor($rootScope, $q, $cookies, $injector, Util) {
   var state;
   return {
@@ -26,7 +24,4 @@ function authInterceptor($rootScope, $q, $cookies, $injector, Util) {
   };
 }
 
-angular.module('hrDbApp.auth')
-  .factory('authInterceptor', authInterceptor);
-
-})();
+export default authInterceptor;

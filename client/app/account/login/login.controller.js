@@ -2,9 +2,10 @@
 
 class LoginController {
   //start-non-standard
-  user = {};
+  // Fixme: uncomment these 3 lines and make them work as designed
+  /*user = {};
   errors = {};
-  submitted = false;
+  submitted = false;*/
   //end-non-standard
 
   constructor(Auth, $state) {
@@ -31,5 +32,4 @@ class LoginController {
   }
 }
 
-angular.module('hrDbApp')
-  .controller('LoginController', LoginController);
+export default LoginController;
