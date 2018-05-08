@@ -5,7 +5,7 @@ import authModule from './../../components/auth/auth.module';
 import uiRouter from '@uirouter/angularjs';
 import chartJs from 'angular-chart.js';
 import uiSelect from 'ui-select';
-import daterangepicker from 'angular-daterangepicker';
+import daterangepickerModule from "../../components/daterangepicker/daterangepicker";
 import StatsService from "./stats.service";
 import StatsComponent from "./stats.component";
 import StatsAgencyComponent from "./stats-agency/stats-agency.component";
@@ -21,7 +21,7 @@ let statsModule = angular
     uiRouter,
     chartJs,
     uiSelect,
-    daterangepicker
+    daterangepickerModule
   ])
   .component('stats', StatsComponent)
   .component('statsAgency', StatsAgencyComponent)
