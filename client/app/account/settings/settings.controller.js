@@ -1,13 +1,12 @@
 'use strict';
 
 class SettingsController {
-  //start-non-standard
-  // Fixme: uncomment and make them work
-  /*errors = {};
-  submitted = false;*/
-  //end-non-standard
-
   constructor(Auth) {
+    // moved from body
+    this.errors = {};
+    this.submitted = false;
+    // end
+
     this.Auth = Auth;
   }
 

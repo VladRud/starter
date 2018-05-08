@@ -42,10 +42,11 @@ import './app.css';
 import './../favicon.ico';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'font-awesome/css/font-awesome.css';
 
 // TODO: import btford.socket-io
 
-  angular.module('hrDbApp', [
+angular.module('hrDbApp', [
   authModule,
   adminModule,
   statsModule,
@@ -65,12 +66,13 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
   .controller('LoginController', LoginController)
   .controller('SettingsController', SettingsController)
   .controller('SignupController', SignupController)
+  .controller('VisitController', VisitController)
   .controller('CandidateController', CandidateController)
   .controller('CandidateListController', CandidateListController)
   .controller('EntityController', EntityController)
   .controller('MainController', MainController)
   .controller('NavbarController', NavbarController)
-  .controller('VisitController', VisitController)
+
   .factory('Entity', EntityFactory)
   .factory('Modal', ModalFactory)
   .factory('Search', SearchFactory)
@@ -102,7 +104,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
         var value = input[key];
         var match;
         // Check for string properties which look like dates.
-        // TODO: Improve this regex to better match ISO 8601 date strings.
+        // TODO: {Eugen Kochuev} Improve this regex to better match ISO 8601 date strings.
         if (typeof value === 'string' && (match = value.match(regexIso8601))) {
           // Assume that Date.parse can parse ISO 8601 strings, or has been shimmed in older browsers to do so.
           var milliseconds = Date.parse(match[0]);

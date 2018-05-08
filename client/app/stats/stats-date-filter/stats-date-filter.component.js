@@ -1,6 +1,7 @@
 'use strict';
 
 import template from './stats-date-filter.html';
+import moment from 'moment';
 
 const StatsDateFilterComponent = {
   bindings: {

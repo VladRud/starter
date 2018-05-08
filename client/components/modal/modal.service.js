@@ -3,7 +3,8 @@
 import template from './modal.html';
 import './modal.css';
 
-const ModalFactory = function ($rootScope, $modal) {
+const ModalFactory = function ($rootScope, $uibModal) {
+  let $modal = $uibModal;
   /**
    * Opens a modal
    * @param  {Object} scope      - an object to be merged with modal's scope

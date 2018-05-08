@@ -1,12 +1,16 @@
 'use strict';
 
+import template from './stats.html';
+import './stats.css';
+import moment from 'moment';
+
 let StatsComponent = {
   bindings: {
     positions: '<',
     agencies: '<',
     origins: '<'
   },
-  templateUrl: 'app/stats/stats.html',
+  templateUrl: template,
   controller: class StatsComponent {
     constructor(StatsService, Auth) {
       'ngInject';

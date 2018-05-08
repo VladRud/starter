@@ -2,6 +2,10 @@
 
 class VisitController {
    constructor($http, $timeout, $state, Upload) {
+
+     // TODO: it used to work without this line. Find out why
+     this.visit = {};
+
      this.$http = $http;
      this.$timeout = $timeout;
      this.$state = $state;

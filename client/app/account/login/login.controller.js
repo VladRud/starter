@@ -1,14 +1,13 @@
 'use strict';
 
 class LoginController {
-  //start-non-standard
-  // Fixme: uncomment these 3 lines and make them work as designed
-  /*user = {};
-  errors = {};
-  submitted = false;*/
-  //end-non-standard
-
   constructor(Auth, $state) {
+    // moved from class body
+    this.user = {};
+    this.errors = {};
+    this.submitted = false;
+    // end
+
     this.Auth = Auth;
     this.$state = $state;
   }
