@@ -1,14 +1,18 @@
 'use strict';
 
-import angular from 'angular';
+import MainController from './main.controller';
+import mainTemplate from './main.html';
+import './main.css';
 
-angular.module('hrDbApp')
-  .config(function($stateProvider) {
-    $stateProvider
-      .state('main', {
-        url: '/main',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      });
-  });
+const MainRouter = function($stateProvider) {
+  $stateProvider
+    .state('main', {
+      url: '/main',
+      templateUrl: mainTemplate,
+      controller: MainController,
+      controllerAs: 'main'
+    });
+};
+
+export default MainRouter;
+

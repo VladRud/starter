@@ -1,12 +1,14 @@
 'use strict';
 
+import template from './stats-position-filter.html';
+
   const StatsPositionFilterComponent = {
     bindings: {
       selectedPositionsIds: '<',
       availablePositions: '<',
       onPositionsSelectionChange: '&'
     },
-    templateUrl: 'app/stats/stats-position-filter/stats-position-filter.html',
+    templateUrl: template,
     controller: class StatsPositionFilterComponent {
 
       $onInit() {

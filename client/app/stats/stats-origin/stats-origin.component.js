@@ -1,11 +1,13 @@
 'use strict';
 
+import template from './stats-origin.html';
+
   const StatsOriginComponent = {
     bindings: {
       statsByOrigin: '<',
       origins: '<'
     },
-    templateUrl: 'app/stats/stats-origin/stats-origin.html'
+    templateUrl: template
   };
 
   export default StatsOriginComponent;

@@ -1,4 +1,6 @@
 'use strict';
+
+import angular from 'angular';
 import constantsModule from './../../app/app.constant';
 import utilModule from './../util/util.module';
 import ngCookies from 'angular-cookies';
@@ -7,6 +9,7 @@ import AuthService from "./auth.service";
 import authInterceptor from "./interceptor.service";
 import UserResource from "./user.service";
 import ConvertToNumberDirective from "../convertToNumber/convertToNumber.directive";
+import AuthRouterDecorator from "./router.decorator";
 
 let authModule = angular.module('hrDbApp.auth', [
   constantsModule,
@@ -21,6 +24,7 @@ let authModule = angular.module('hrDbApp.auth', [
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
   })
+  .run(AuthRouterDecorator)
   .name;
 
 export default authModule;

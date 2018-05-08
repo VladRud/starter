@@ -7,6 +7,7 @@ import uiRouter from '@uirouter/angularjs';
 // import uiToggle from 'angular-bootstrap-toggle';
 import AdminController from "./admin.controller";
 import UserDetailsController from "./user.details.controller";
+import AdminRouter from "./admin.router";
 
 let adminModule = angular.module('hrDbApp.admin', [
   // 'hrDbApp',
@@ -16,6 +17,7 @@ let adminModule = angular.module('hrDbApp.admin', [
 ])
   .controller('AdminController', AdminController)
   .controller('UserDetailsController', UserDetailsController)
+  .config(AdminRouter)
   .name;
 
 export default adminModule;

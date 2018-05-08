@@ -1,9 +1,10 @@
 'use strict';
 
 import candidateTemplate from './candidate.html';
-import  listTemplate from './list.html'
+import listTemplate from './list.html'
 import CandidateListController from './candidate.list.controller';
 import CandidateController from './candidate.controller';
+import './candidate.css';
 
 let CandidateRouter = function($stateProvider) {
   $stateProvider
@@ -49,8 +50,8 @@ let CandidateRouter = function($stateProvider) {
     })
     .state('candidate.details', {
       url: '/candidate/:id',
-      templateUrl: 'app/candidate/candidate.html',
-      controller: 'CandidateController',
+      templateUrl: candidateTemplate,
+      controller: CandidateController,
       controllerAs: 'vm',
       authenticate: 'user',
       resolve: {

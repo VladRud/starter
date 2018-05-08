@@ -1,11 +1,13 @@
 'use strict';
 
+import template from './stats-agency.html';
+
 const StatsAgencyComponent = {
   bindings: {
     statsByAgency: '<',
     agencies: '<'
   },
-  templateUrl: 'app/stats/stats-agency/stats-agency.html'
+  templateUrl: template
 };
 
 export default StatsAgencyComponent;

@@ -1,14 +1,17 @@
 'use strict';
 
+import VisitController from './visit.controller';
+import template from './visit.html';
+
 const VisitsDirective = () => ({
-  templateUrl: 'components/visit/visit.html',
+  templateUrl: template,
   scope: {},
   bindToController: {
     visit: '=',
     candidateName: '@'
   },
   restrict: 'E',
-  controller: 'VisitController',
+  controller: VisitController,
   controllerAs: 'vm'
 });
 

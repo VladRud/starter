@@ -1,12 +1,14 @@
 'use strict';
 
+import template from './stats-date-filter.html';
+
 const StatsDateFilterComponent = {
   bindings: {
     startDate: '<',
     endDate: '<',
     onDatesChanged: '&'
   },
-  templateUrl: 'app/stats/stats-date-filter/stats-date-filter.html',
+  templateUrl: template,
   controller: class StatsDateFilterComponent {
 
     constructor() {

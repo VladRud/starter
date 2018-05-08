@@ -1,8 +1,11 @@
 'use strict';
 
+import template from './footer.html';
+import './footer.css';
+
 const FooterDirective = function () {
   return {
-    templateUrl: 'components/footer/footer.html',
+    templateUrl: template,
     restrict: 'E',
     link: function(scope, element) {
       element.addClass('footer');

@@ -1,5 +1,8 @@
 'use strict';
 
+import template from './modal.html';
+import './modal.css';
+
 const ModalFactory = function ($rootScope, $modal) {
   /**
    * Opens a modal
@@ -13,7 +16,7 @@ const ModalFactory = function ($rootScope, $modal) {
     angular.extend(modalScope, scope);
 
     return $modal.open({
-      templateUrl: 'components/modal/modal.html',
+      templateUrl: template,
       windowClass: modalClass,
       scope: modalScope
     });

@@ -1,7 +1,9 @@
 'use strict';
 
+import template from './interviewStatus.html';
+
 const InterviewStatusDirective = () => ({
-  templateUrl: 'components/interviewStatus/interviewStatus.html',
+  templateUrl: template,
   scope: {
     stage: '=',
     dateTime: '='

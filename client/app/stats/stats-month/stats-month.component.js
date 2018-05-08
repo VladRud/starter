@@ -1,10 +1,13 @@
 'use strict';
 
+import template from './stats-month.html';
+import './stats-month.css';
+
 const StatsMonthComponent = {
   bindings: {
     monthlyChart: '<'
   },
-  templateUrl: 'app/stats/stats-month/stats-month.html',
+  templateUrl: template,
   controller: class StatsMonthComponent {
     constructor() {
       this.isDataAvailable = this.checkIfDataAvailable();
