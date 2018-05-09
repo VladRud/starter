@@ -1,7 +1,10 @@
 import angular from 'angular';
 import $ from 'jquery'
+import moment from 'moment';
 import 'bootstrap-daterangepicker';
+import 'bootstrap-daterangepicker/daterangepicker.css'
 
+// TODO: make better comment
 /*
 * Fork of https://github.com/fragaria/angular-daterangepicker
 *
