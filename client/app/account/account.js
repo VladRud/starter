@@ -10,6 +10,7 @@ import SettingsController from './settings/settings.controller';
 
 
 const AccountRouter = function($stateProvider) {
+  'ngInject';
   $stateProvider
     .state('login', {
       url: '/login',
@@ -22,6 +23,7 @@ const AccountRouter = function($stateProvider) {
       referrer: 'login',
       template: '',
       controller: function($state, Auth) {
+        'ngInject';
         var referrer = $state.params.referrer ||
           $state.current.referrer ||
           'login';
@@ -44,6 +46,7 @@ const AccountRouter = function($stateProvider) {
     });
 };
 const AccountHook = function($rootScope) {
+  'ngInject';
   $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
     if (next.name === 'logout' && current && current.name && !current.authenticate) {
       next.referrer = current.name;

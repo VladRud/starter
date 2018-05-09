@@ -2,6 +2,7 @@
 
 class VisitController {
    constructor($http, $timeout, $state, Upload) {
+     'ngInject';
 
      this.$http = $http;
      this.$timeout = $timeout;

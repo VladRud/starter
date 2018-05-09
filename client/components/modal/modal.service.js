@@ -4,6 +4,7 @@ import template from './modal.html';
 import './modal.css';
 
 const ModalFactory = function ($rootScope, $uibModal) {
+  'ngInject';
   let $modal = $uibModal;
   /**
    * Opens a modal

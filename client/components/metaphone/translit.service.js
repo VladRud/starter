@@ -1,6 +1,7 @@
 'use strict';
 
 const TranslitFactory = function (appConfig) {
+  'ngInject';
 
   function startsWith(start, str) {
     for (var i = 0; i < start.length; i++) {

@@ -2,6 +2,7 @@
 
 class SettingsController {
   constructor(Auth) {
+    'ngInject';
     // moved from body
     this.errors = {};
     this.submitted = false;

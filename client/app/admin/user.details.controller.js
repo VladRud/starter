@@ -2,6 +2,7 @@
 
 class UserDetailsController {
   constructor(User, Modal, $http, $scope, $state, userObj) {
+    'ngInject';
     this.Modal = Modal;
     this.User = User;
     this.$state = $state;

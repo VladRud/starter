@@ -2,6 +2,7 @@
 
 class AdminController {
   constructor(User, Modal) {
+    'ngInject';
     this.Modal = Modal;
     // Use the User $resource to fetch all users
     this.users = User.query();

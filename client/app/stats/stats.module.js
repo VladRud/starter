@@ -32,6 +32,7 @@ let statsModule = angular
   .component('statsPositionFilter', StatsPositionFilterComponent)
   .service('StatsService', StatsService)
   .config(function ($stateProvider) {
+    'ngInject';
     $stateProvider.state({
       name: 'stats',
       url: '/stats',

@@ -85,12 +85,14 @@ angular.module('hrDbApp', [
   .filter('hasOpenVisits', HasOpenVisitsFilter)
   .config(CandidateRouter)
   .config(function ($urlRouterProvider, $locationProvider) {
+    'ngInject';
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
   })
   .config(function ($httpProvider) {
+    'ngInject';
 
     var regexIso8601 = /^(\d{4}|\+\d{6})(?:-(\d{2})(?:-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})\.(\d{1,})(Z|([\-+])(\d{2}):(\d{2}))?)?)?)?$/;
 
@@ -127,6 +129,7 @@ angular.module('hrDbApp', [
   .config(EntityRouter)
   .run(AccountHook)
   .run(amMoment => {
+    'ngInject';
     amMoment.changeLocale('en', {
       longDateFormat: {
         LTS: 'HH:mm:ss',

@@ -2,6 +2,7 @@
 
 class NavbarController {
   constructor(Auth) {
+    'ngInject';
     // moved from body
     this.menu = [{
       'title': 'Candidates',

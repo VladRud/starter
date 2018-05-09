@@ -13,6 +13,7 @@ const StatsDateFilterComponent = {
   controller: class StatsDateFilterComponent {
 
     constructor() {
+
       this.beginningOfHistory = moment('05-04-2001', 'DD/MM/YYYY');
       this.datePicker = {
         date: {

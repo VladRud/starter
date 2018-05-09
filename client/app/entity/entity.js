@@ -5,6 +5,7 @@ import entityTemplate from './entity.html';
 import './entity.css';
 
 const EntityRouter = function($stateProvider) {
+  'ngInject';
   $stateProvider
     .state('entity', {
       template: ' <ui-view></ui-view>'

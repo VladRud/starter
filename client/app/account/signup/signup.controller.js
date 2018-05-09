@@ -2,6 +2,7 @@
 
 class SignupController {
   constructor(Auth, $state) {
+    'ngInject';
     // moved from body
     this.user = {};
     this.errors = {};

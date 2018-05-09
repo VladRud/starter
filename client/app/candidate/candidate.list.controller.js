@@ -3,6 +3,7 @@
 class CandidateListController {
 
   constructor($http, $state, $scope, $cookies, $filter, Modal, candidatesObj, agencies, positions, appConfig, Metaphone, Auth) {
+    'ngInject';
     this.$http = $http;
     this.$cookies = $cookies;
     this.$filter = $filter;

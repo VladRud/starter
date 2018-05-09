@@ -10,6 +10,7 @@ const InterviewStatusDirective = () => ({
   },
   restrict: 'E',
   controller: ($scope) => {
+    'ngInject';
     $scope.isPastInterview = () => {
       return $scope.dateTime.getTime() < Date.now();
     };

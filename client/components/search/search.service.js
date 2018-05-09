@@ -1,6 +1,7 @@
 'use strict';
 
 const SearchFactory = function ($http, $q, Metaphone) {
+  'ngInject';
   /**
    * Search by different mongo criterias
    * @param query {Object}

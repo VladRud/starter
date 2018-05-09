@@ -1,6 +1,7 @@
 'use strict';
 
 const EntityFactory = function ($http, $q) {
+  'ngInject';
   var entityCache = [];
 
   /**

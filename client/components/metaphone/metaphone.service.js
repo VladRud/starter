@@ -1,6 +1,7 @@
 'use strict';
 
 const MetaphoneFactory = function (appConfig, Translit, metaphoneLib) {
+  'ngInject';
 
   // Public API here
   return {

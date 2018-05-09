@@ -3,6 +3,7 @@
 class EntityController {
 
   constructor($http, $stateParams, Modal) {
+    'ngInject';
     this.$http = $http;
     this.entities = [];
     this.title = $stateParams.title;

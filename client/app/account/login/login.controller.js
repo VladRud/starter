@@ -2,6 +2,7 @@
 
 class LoginController {
   constructor(Auth, $state) {
+    'ngInject';
     // moved from class body
     this.user = {};
     this.errors = {};

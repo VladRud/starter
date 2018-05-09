@@ -1,6 +1,7 @@
 'use strict';
 
 function authInterceptor($rootScope, $q, $cookies, $injector, Util) {
+  'ngInject';
   var state;
   return {
     // Add authorization token to headers

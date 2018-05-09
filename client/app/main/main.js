@@ -5,6 +5,7 @@ import mainTemplate from './main.html';
 import './main.css';
 
 const MainRouter = function($stateProvider) {
+  'ngInject';
   $stateProvider
     .state('main', {
       url: '/main',

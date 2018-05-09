@@ -3,6 +3,7 @@
 class MainController {
 
   constructor($http, $scope, socket) {
+    'ngInject';
     this.$http = $http;
     this.awesomeThings = [];
 

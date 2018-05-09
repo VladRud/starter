@@ -7,6 +7,7 @@ import UserDetailsController from './user.details.controller';
 import './admin.css';
 
 const AdminRouter = function($stateProvider) {
+  'ngInject';
   $stateProvider
     .state('admin', {
       template: ' <ui-view></ui-view>'
@@ -26,6 +27,7 @@ const AdminRouter = function($stateProvider) {
       authenticate: 'admin',
       resolve: {
         'userObj': ($http, $stateParams) => {
+          'ngInject';
           // $http returns a promise for the url data
           return $http.get('/api/users/' + $stateParams.id)
         },

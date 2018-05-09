@@ -3,6 +3,7 @@
 class CandidateController {
 
   constructor($filter, $http, $state, $stateParams, $scope, $q, Modal, Search, candidateObj) {
+    'ngInject';
     this.$filter = $filter;
     this.$http = $http;
     this.$state = $state;
@@ -173,8 +174,6 @@ class CandidateController {
   }
 
   getLatestActiveVisitIndex(visits){
-    console.log(Object.assign({}, visits));
-    console.log(visits);
     return visits.reduce(
       (prevIndex, visit, index) => {
         if(visit.active && !visit.closed){

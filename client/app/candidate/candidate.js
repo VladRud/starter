@@ -7,6 +7,7 @@ import CandidateController from './candidate.controller';
 import './candidate.css';
 
 let CandidateRouter = function($stateProvider) {
+  'ngInject';
   $stateProvider
     .state('candidate', {
       template: ' <ui-view></ui-view>'
@@ -56,6 +57,7 @@ let CandidateRouter = function($stateProvider) {
       authenticate: 'user',
       resolve: {
         'candidateObj': ($http, $stateParams) => {
+          'ngInject';
           // $http returns a promise for the url data
           return $http.get('/api/candidates/' + $stateParams.id)
         },
