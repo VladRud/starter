@@ -3,9 +3,6 @@
 class VisitController {
    constructor($http, $timeout, $state, Upload) {
 
-     // TODO: it used to work without this line. Find out why
-     this.visit = {};
-
      this.$http = $http;
      this.$timeout = $timeout;
      this.$state = $state;
@@ -25,6 +22,9 @@ class VisitController {
        this.origins = response.data;
      });
 
+   }
+
+  $onInit() {
      this.visit.isValid = () => {
        return this.visitInfoForm.$valid;
      };
@@ -36,9 +36,7 @@ class VisitController {
      this.visit.setPristine = () => {
        this.visitInfoForm.$setPristine();
      };
-
-
-   }
+  }
 
   uploadCv(file) {
     if (!file) return;
