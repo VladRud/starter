@@ -40,7 +40,7 @@ import HasOpenVisitsFilter from '../components/visit/visit.filters';
 import EntityRouter from './entity/entity';
 import './app.css';
 import './../favicon.ico';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/less/bootstrap.less';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'font-awesome/css/font-awesome.css';
 

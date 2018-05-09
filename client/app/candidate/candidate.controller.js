@@ -10,6 +10,7 @@ class CandidateController {
     this.Modal = Modal;
     this.Search = Search;
     this.$q = $q;
+    this.activeTabIndex = 1;
 
     this.spinner = false;
 
@@ -42,6 +43,10 @@ class CandidateController {
         else
           return 0;
       });
+
+      // Fixme: when user create new tab/visit, the uib-tabset fails to set it as active
+      this.setActiveTab();
+
     }, true);
   }
 
@@ -159,6 +164,27 @@ class CandidateController {
         this.candidate.visits[i].setPristine()
     }
 
+  }
+
+  setActiveTab() {
+    const visitIndex = this.getLatestActiveVisitIndex(this.candidate.visits);
+    const tabsBeforeVisitTab = 1;
+    this.activeTabIndex = visitIndex + tabsBeforeVisitTab;
+  }
+
+  getLatestActiveVisitIndex(visits){
+    console.log(Object.assign({}, visits));
+    console.log(visits);
+    return visits.reduce(
+      (prevIndex, visit, index) => {
+        if(visit.active && !visit.closed){
+          return index;
+        }else{
+          return prevIndex;
+        }
+      },
+      (visits.length - 1)
+      );
   }
 
 }

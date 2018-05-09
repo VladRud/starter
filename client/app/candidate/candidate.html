@@ -105,13 +105,13 @@
     </div>
   </form>
 
-  <uib-tabset style="padding-top: 30px">
+  <uib-tabset active="vm.activeTabIndex" style="padding-top: 30px">
     <uib-tab uib-popover="{{vm.hasOpenVisits() ? 'Already have open visit(s)' : ''}}" popover-trigger="mouseenter" disable="vm.hasOpenVisits()" ng-click="vm.hasOpenVisits() || vm.addVisit()">
       <uib-tab-heading>
         <i class="glyphicon glyphicon-plus"></i>
       </uib-tab-heading>
     </uib-tab>
-    <uib-tab ng-repeat="v in vm.candidate.visits" active="v.active">
+    <uib-tab ng-repeat="v in vm.candidate.visits">
       <uib-tab-heading>
         <i class="glyphicon glyphicon-ok" ng-if="v.closed == 'hired'"></i>
         <i class="fa fa-user-times" ng-if="v.closed == 'rejected'"></i>
@@ -120,7 +120,7 @@
         <i class="fa fa-exclamation-triangle" style="color: red" ng-if="!v.isValid()"></i>
         <span uib-dropdown on-toggle="toggled(open)">
           <a href id="simple-dropdown" class="caret" uib-dropdown-toggle></a>
-          <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+          <ul class="uib-dropdown-menu dropdown-menu" aria-labelledby="simple-dropdown">
             <li>
               <a ng-click="vm.removeVisit('visit on ' +  vm.$filter('date')(v.general.date,'dd.MM.yy'), $index)">Remove</a>
             </li>
