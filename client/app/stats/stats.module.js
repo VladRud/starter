@@ -5,6 +5,7 @@ import authModule from './../../components/auth/auth.module';
 import uiRouter from '@uirouter/angularjs';
 import chartJs from 'angular-chart.js';
 import uiSelect from 'ui-select';
+import 'ui-select/dist/select.css';
 import daterangepickerModule from "../../components/daterangepicker/daterangepicker";
 import StatsService from "./stats.service";
 import StatsComponent from "./stats.component";

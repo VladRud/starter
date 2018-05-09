@@ -23,11 +23,10 @@ let StatsComponent = {
       this.startDateParam = undefined;
       this.endDateParam = undefined;
       this.selectedPositionsIds = [];
-      this.allowedToUserPositions = this.filterPositionsWithUserRights(this.positions);
-
     }
 
     $onInit() {
+      this.allowedToUserPositions = this.filterPositionsWithUserRights(this.positions);
       this.updateStats();
     }
 
