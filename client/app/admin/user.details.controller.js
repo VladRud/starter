@@ -32,6 +32,10 @@ class UserDetailsController {
     }
   }
 
+  toggleLimitedPositionsFlag() {
+    this.user.limitedPositionsFlag = !this.user.limitedPositionsFlag;
+  }
+
   saveUser(form) {
     this.submitted = true;
 

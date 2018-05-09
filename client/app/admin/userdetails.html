@@ -83,8 +83,15 @@
   <div class="form-group" ng-if="vm.user.role == 'user'">
     <label class="col-sm-3 control-label">Limited job positions access</label>
     <div class="col-sm-9">
-      <!--TOOD: try <ui-toggle -->
-      <toggle ng-model="vm.user.limitedPositionsFlag"></toggle>
+      <a href="#" ng-click="vm.toggleLimitedPositionsFlag()">
+        <span
+          class="fa fa-2x"
+          ng-class="{
+            'fa-toggle-on': vm.user.limitedPositionsFlag,
+            'fa-toggle-off': !vm.user.limitedPositionsFlag
+          }"
+        ></span>
+      </a>
     </div>
   </div>
 
