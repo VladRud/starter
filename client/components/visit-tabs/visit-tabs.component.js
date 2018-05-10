@@ -20,7 +20,6 @@ const VisitTabsComponent = {
     constructor($filter){
       'ngInject';
       this.$filter = $filter;
-      console.log('constructor');
     }
 
     addVisit() {

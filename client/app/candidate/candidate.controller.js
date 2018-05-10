@@ -123,7 +123,7 @@ class CandidateController {
       // https://github.com/angular-ui/bootstrap/issues/5805#issuecomment-210075204
       this.$timeout(() => {
         this.setActiveTab();
-      }, 250);
+      }, 500);
 
     }
   }
