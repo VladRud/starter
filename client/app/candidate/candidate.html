@@ -137,6 +137,10 @@
         </span>
       </uib-tab-heading>
       <visit visit="v" candidate-name="{{vm.candidate.firstName + ' ' + vm.candidate.lastName}}"></visit>
+
+      <!--TODO: find better solution-->
+      {{$last ? vm.setActiveTab() : ''}}
+
     </uib-tab>
   </uib-tabset>
 
