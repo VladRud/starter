@@ -15,6 +15,7 @@ import validationMatch from 'angular-validation-match';
 import ngFileUpload from 'ng-file-upload';
 import angularSpinner from 'angular-spinner';
 import angularMoment from 'angular-moment';
+import VisitTabsComponent from './../components/visit-tabs/visit-tabs.component';
 import LoginController from './account/login/login.controller';
 import SettingsController from './account/settings/settings.controller';
 import SignupController from './account/signup/signup.controller';
@@ -63,6 +64,7 @@ angular.module('hrDbApp', [
   angularSpinner.angularSpinner.name,
   angularMoment
 ])
+  .component('visitTabs', VisitTabsComponent)
   .controller('LoginController', LoginController)
   .controller('SettingsController', SettingsController)
   .controller('SignupController', SignupController)

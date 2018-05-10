@@ -2,7 +2,7 @@
 
 class CandidateController {
 
-  constructor($filter, $http, $state, $stateParams, $scope, $q, Modal, Search, candidateObj) {
+  constructor($filter, $http, $state, $stateParams, $scope, $q, Modal, Search, $timeout, candidateObj) {
     'ngInject';
     this.$filter = $filter;
     this.$http = $http;
@@ -12,6 +12,8 @@ class CandidateController {
     this.Search = Search;
     this.$q = $q;
     this.activeTabIndex = 1;
+    this.Modal = Modal;
+    this.$timeout = $timeout;
 
     this.spinner = false;
 
@@ -21,22 +23,19 @@ class CandidateController {
 
     this.candidateMayExistsAs = [];
 
-    this.removeVisit = Modal.confirm.delete((index) => {
-      this.candidate.visits.splice(index, 1);
-    });
 
     this.onStateChangeOff = $scope.$on('$stateChangeStart', (event, toState, toParams) => {
-        if (this.isDirty()) {
-          event.preventDefault();
-          Modal.confirm.pageLeave(() => {
-            this.onStateChangeOff();
-            this.$state.go(toState, toParams);
-          })('You have unsaved changes');
-        }
+      if (this.isDirty()) {
+        event.preventDefault();
+        Modal.confirm.pageLeave(() => {
+          this.onStateChangeOff();
+          this.$state.go(toState, toParams);
+        })('You have unsaved changes');
+      }
     });
 
     $scope.$watch(() => this.candidate.visits, () => {
-      this.candidate.visits.sort((a,b) => {
+      this.candidate.visits.sort((a, b) => {
         if (a.general.date > b.general.date)
           return 1;
         else if (a.general.date < b.general.date)
@@ -45,10 +44,11 @@ class CandidateController {
           return 0;
       });
 
-      // Fixme: when user create new tab/visit, the uib-tabset fails to set it as active
-      this.setActiveTab();
+      this.setHasOpenVisitsFlag();
 
     }, true);
+
+    this.setHasOpenVisitsFlag();
   }
 
   save(backToList) {
@@ -86,48 +86,64 @@ class CandidateController {
     }
 
     this.$q
-      .all([this.Search.getPossibleDuplicatesByName(this.candidate), this.Search.getPossibleDuplicatesByContactDetails(this.candidate)])
-      .then(possibleDuplicates => {
-        return _.flatten(possibleDuplicates);
-      })
-      .then(possibleDuplicatesFlat => {
-        return _.uniq(possibleDuplicatesFlat, elm => elm._id);
-      })
-      .then(possibleDuplicatesUniq => {
-        this.candidateMayExistsAs = possibleDuplicatesUniq;
-      });
+        .all([this.Search.getPossibleDuplicatesByName(this.candidate), this.Search.getPossibleDuplicatesByContactDetails(this.candidate)])
+        .then(possibleDuplicates => {
+          return _.flatten(possibleDuplicates);
+        })
+        .then(possibleDuplicatesFlat => {
+          return _.uniq(possibleDuplicatesFlat, elm => elm._id);
+        })
+        .then(possibleDuplicatesUniq => {
+          this.candidateMayExistsAs = possibleDuplicatesUniq;
+        });
 
   }
 
   addVisit() {
-    this.candidate.visits.push({
-      general: {
-        'date': new Date()
-      },
-      skype: {
-        planned: false
-      },
-      office: {
-        planned: false
-      },
-      proposal: {
-        done: false
-      },
-      active: true,
-      closed: false
-    });
+    if (!this.hasOpenVisits) {
+      const newVisit = {
+        general: {
+          'date': new Date()
+        },
+        skype: {
+          planned: false
+        },
+        office: {
+          planned: false
+        },
+        proposal: {
+          done: false
+        },
+        active: true,
+        closed: false
+      };
+      this.candidate.visits = [...this.candidate.visits, newVisit];
+
+      // Ugly timeout, added to fix known uib-tabs issue
+      // https://github.com/angular-ui/bootstrap/issues/5805#issuecomment-210075204
+      this.$timeout(() => {
+        this.setActiveTab();
+      }, 250);
+
+    }
   }
 
-  rejectVisit(visit) {
-    visit.closed = 'rejected';
+  rejectVisit(event) {
+    event.visit.closed = 'rejected';
   }
 
-  hireVisit(visit) {
-    visit.closed = 'hired';
+  hireVisit(event) {
+    event.visit.closed = 'hired';
   }
 
-  reopenVisit(visit) {
-    visit.closed = false;
+  reopenVisit(event) {
+    event.visit.closed = false;
+  }
+
+  removeVisit(event) {
+    this.Modal.confirm.delete((index) => {
+      this.candidate.visits.splice(index, 1);
+    })(event.msg, event.index);
   }
 
   hasOpenVisits() {
@@ -138,7 +154,7 @@ class CandidateController {
     if (this.personInfoForm.$invalid)
       return false;
 
-    for (var i = 0; i < this.candidate.visits.length; i++ ) {
+    for (var i = 0; i < this.candidate.visits.length; i++) {
       if (this.candidate.visits[i].isValid === undefined || !this.candidate.visits[i].isValid())
         return false;
     }
@@ -150,7 +166,7 @@ class CandidateController {
     if (this.personInfoForm.$dirty)
       return true;
 
-    for (var i = 0; i < this.candidate.visits.length; i++ ) {
+    for (var i = 0; i < this.candidate.visits.length; i++) {
       if (this.candidate.visits[i].isDirty === undefined || this.candidate.visits[i].isDirty())
         return true;
     }
@@ -160,7 +176,7 @@ class CandidateController {
 
   setPristine() {
     this.personInfoForm.$setPristine();
-    for (var i = 0; i < this.candidate.visits.length; i++ ) {
+    for (var i = 0; i < this.candidate.visits.length; i++) {
       if (this.candidate.visits[i].setPristine !== undefined)
         this.candidate.visits[i].setPristine()
     }
@@ -173,17 +189,21 @@ class CandidateController {
     this.activeTabIndex = visitIndex + tabsBeforeVisitTab;
   }
 
-  getLatestActiveVisitIndex(visits){
+  getLatestActiveVisitIndex(visits) {
     return visits.reduce(
-      (prevIndex, visit, index) => {
-        if(visit.active && !visit.closed){
-          return index;
-        }else{
-          return prevIndex;
-        }
-      },
-      (visits.length - 1)
-      );
+        (prevIndex, visit, index) => {
+          if (visit.active && !visit.closed) {
+            return index;
+          } else {
+            return prevIndex;
+          }
+        },
+        (visits.length - 1)
+    );
+  }
+
+  setHasOpenVisitsFlag() {
+    this.hasOpenVisits = this.$filter('hasOpenVisits')(this.candidate.visits);
   }
 
 }

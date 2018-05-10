@@ -1,0 +1,42 @@
+<uib-tabset active="$ctrl.activeTabIndex" style="padding-top: 30px">
+
+  <uib-tab
+      uib-popover="{{$ctrl.hasOpenVisits ? 'Already have open visit(s)' : ''}}"
+      popover-trigger="mouseenter"
+      disable="$ctrl.hasOpenVisits"
+      ng-click="$ctrl.addVisit()"
+  >
+    <uib-tab-heading>
+      <i class="glyphicon glyphicon-plus"></i>
+    </uib-tab-heading>
+  </uib-tab>
+
+  <uib-tab ng-repeat="visit in $ctrl.candidate.visits">
+    <uib-tab-heading>
+      <i class="glyphicon glyphicon-ok" ng-if="visit.closed == 'hired'"></i>
+      <i class="fa fa-user-times" ng-if="visit.closed == 'rejected'"></i>
+      <i class="fa fa-hourglass-half" ng-if="!visit.closed"></i>
+      {{visit.general.date | amDateFormat : 'L'}}
+      <i class="fa fa-exclamation-triangle" style="color: red" ng-if="!visit.isValid()"></i>
+      <span uib-dropdown on-toggle="toggled(open)">
+          <a href id="simple-dropdown" class="caret" uib-dropdown-toggle></a>
+          <ul class="uib-dropdown-menu dropdown-menu" aria-labelledby="simple-dropdown">
+            <li>
+              <a ng-click="$ctrl.removeVisit({msg: $ctrl.getRemoveMsg(visit), index: $index})">Remove</a>
+            </li>
+            <li ng-if="!visit.closed">
+              <a ng-click="$ctrl.rejectVisit({visit: visit})">Close with rejection</a>
+            </li>
+            <li ng-if="!visit.closed">
+              <a ng-click="$ctrl.hireVisit({visit: visit})">Close with hire</a>
+            </li>
+            <li ng-if="visit.closed">
+              <a ng-click="$ctrl.reopenVisit({visit: visit})">Reopen</a>
+            </li>
+          </ul>
+        </span>
+    </uib-tab-heading>
+    <visit visit="visit" candidate-name="{{$ctrl.candidate.firstName + ' ' + $ctrl.candidate.lastName}}"></visit>
+  </uib-tab>
+
+</uib-tabset>
