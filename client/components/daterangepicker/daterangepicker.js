@@ -4,9 +4,8 @@ import moment from 'moment';
 import 'bootstrap-daterangepicker';
 import 'bootstrap-daterangepicker/daterangepicker.css'
 
-// TODO: make better comment
 /*
-* Fork of https://github.com/fragaria/angular-daterangepicker
+* The daterangepickerModule is fork of https://github.com/fragaria/angular-daterangepicker
 *
 * */
 const daterangepickerModule = angular.module('daterangepicker', [])

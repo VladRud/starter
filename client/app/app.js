@@ -45,8 +45,6 @@ import 'bootstrap/less/bootstrap.less';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'font-awesome/css/font-awesome.css';
 
-// TODO: import btford.socket-io
-
 angular.module('hrDbApp', [
   authModule,
   adminModule,
@@ -56,7 +54,6 @@ angular.module('hrDbApp', [
   ngCookies,
   ngResource,
   ngSanitize,
-  // /*'btford.socket-io',*/
   uiRouter,
   uiBootstrap,
   validationMatch,
