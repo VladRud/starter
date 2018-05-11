@@ -48,6 +48,7 @@ class CandidateController {
 
     }, true);
 
+    this.setActiveTab();
     this.setHasOpenVisitsFlag();
   }
 
@@ -71,6 +72,7 @@ class CandidateController {
         } else {
           this.candidate = response.data;
           this.spinner = false;
+          this.setActiveTab();
         }
       });
     }
@@ -119,13 +121,8 @@ class CandidateController {
       };
       this.candidate.visits = [...this.candidate.visits, newVisit];
 
-      // Ugly timeout, added to fix known uib-tabs issue
-      // https://github.com/angular-ui/bootstrap/issues/5805#issuecomment-210075204
-      this.$timeout(() => {
-        this.setActiveTab();
-      }, 500);
-
-    }
+      this.setActiveTab();
+      }
   }
 
   rejectVisit(event) {
@@ -184,9 +181,17 @@ class CandidateController {
   }
 
   setActiveTab() {
-    const visitIndex = this.getLatestActiveVisitIndex(this.candidate.visits);
-    const tabsBeforeVisitTab = 1;
-    this.activeTabIndex = visitIndex + tabsBeforeVisitTab;
+    this.activeTabIndex = 0;
+
+    // Ugly timeout, added to fix known uib-tabs issue
+    // https://github.com/angular-ui/bootstrap/issues/5805#issuecomment-210075204
+    this.$timeout(() => {
+      const visitIndex = this.getLatestActiveVisitIndex(this.candidate.visits);
+      const tabsBeforeVisitTab = 1;
+      this.activeTabIndex = visitIndex + tabsBeforeVisitTab;
+    }, 250);
+
+
   }
 
   getLatestActiveVisitIndex(visits) {
