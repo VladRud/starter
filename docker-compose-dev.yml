@@ -5,7 +5,7 @@ services:
     environment:
       - TZ=Europe/Kiev
       - NODE_ENV=development
-    command: npm run build:serve
+    command: npm run docker:dev
     ports:
      - "9000:9000"
      - "35729:35729"

@@ -23,8 +23,8 @@ var mongoStore = connectMongo(session);
 
 module.exports = function(app) {
   var env = app.get('env');
-  app.set('views', config.root + '/server/views');
-  app.set('view engine', 'html');
+  //   app.set('views', config.root + '/server/views');
+  //   app.set('view engine', 'html');
   //app.use(require('express-domain-middleware'));
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: false }));
@@ -56,9 +56,6 @@ module.exports = function(app) {
         next();
       } else {
         lusca({
-          csrf: {
-            angular: true
-          },
           xframe: 'SAMEORIGIN',
           hsts: {
             maxAge: 31536000, //1 year, in seconds
@@ -74,11 +71,11 @@ module.exports = function(app) {
     app.use(excludeLuscaForSkype());
   }
 
-  app.set('appPath', path.join(config.root, 'dist', 'client'));
+  //   app.set('appPath', path.join(config.root, 'dist', 'client'));
 
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
-    app.use(express.static(app.get('appPath')));
+    //   app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
   }
 
@@ -89,8 +86,8 @@ module.exports = function(app) {
   }
 
   if ('development' === env || 'test' === env) {
-    app.use(express.static(path.join(config.root, '.tmp')));
-    app.use(express.static(app.get('appPath')));
+      // app.use(express.static(path.join(config.root, '.tmp')));
+      // app.use(express.static(app.get('appPath')));
     app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last
   }

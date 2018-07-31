@@ -18,7 +18,8 @@
     "server:watch": "NODE_ENV=development webpack --watch --config webpack-server.config.js",
     "clean": "rimraf dist/*",
     "copy:server": "cp .credentials dist -r",
-    "copy:client": "cp -t dist/client client/favicon.ico client/robots.txt"
+    "copy:client": "cp -t dist/client client/favicon.ico client/robots.txt",
+    "docker:dev": "npm run copy:server && NODE_ENV=development node dist/server"
   },
   "babel": {
     "presets": [
